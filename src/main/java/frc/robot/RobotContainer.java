@@ -4,15 +4,26 @@
 
 package frc.robot;
 
+import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import com.robocats.swerve.SwerveSubsystem;
 
+import com.robocats.swerve.SwerveConfig;
+import com.robocats.swerve.SwerveSubsystem;
+import com.studica.frc.AHRS.NavXComType;
+
+import frc.robot.Constants.DriveConstants;
+import com.robocats.swerve.gyroscope.AhrsGyro;
+import com.robocats.swerve.ModuleConfig;
+import com.robocats.controllers.Ps3;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -22,18 +33,52 @@ import com.robocats.swerve.SwerveSubsystem;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  // private final SwerveSubsystem swerve = new SwerveSubsystem();
-  //private final SwerveSubsystem s = new SwerveSubsystem(null, null);
+
+  private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
+    DriveConstants.kDriveKinematics, 
+    new ModuleConfig(
+      DriveConstants.kFrontLeftDriveMotorPort,
+      DriveConstants.kRearLeftDriveMotorPort,
+      DriveConstants.kFrontRightDriveMotorPort,
+      DriveConstants.kRearRightDriveMotorPort,
+      DriveConstants.kFrontLeftTurningMotorPort,
+      DriveConstants.kRearLeftTurningMotorPort,
+      DriveConstants.kFrontRightTurningMotorPort,
+      DriveConstants.kRearRightTurningMotorPort,
+      DriveConstants.kFrontLeftEncoderPort,
+      DriveConstants.kRearLeftEncoderPort,
+      DriveConstants.kFrontRightEncoderPort,
+      DriveConstants.kRearRightEncoderPort,
+      DriveConstants.kFrontLeftAbsoluteEncoderOffset,
+      DriveConstants.kRearLeftAbsoluteEncoderOffset,
+      DriveConstants.kFrontRightAbsoluteEncoderOffset,
+      DriveConstants.kRearRightAbsoluteEncoderOffset,
+      false, true, true, false), 
+    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
+    true
+  ), new PIDController(0,0,0));
+
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  // private final CommandXboxController m_driverController =
+      //new CommandXboxController(OperatorConstants.kDriverControllerPort); EXAMPLE
+    private Ps3 ps3 = new Ps3(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     
     configureBindings();
+
+    Swerve.setDefaultCommand(
+      new RunCommand(() -> Swerve.drive(
+        ps3.getLeftY(),
+        ps3.getLeftX(),
+        ps3.getRightX(),
+        ps3.getRightY()
+      ), Swerve)
+    );
+    Swerve.setupPathPlanner();
   }
   // something
   /**
@@ -52,7 +97,8 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());  EXAMPLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    
   }
 
   /**

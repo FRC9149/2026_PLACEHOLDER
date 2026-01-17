@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.wpilibj.TimedRobot;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -15,5 +19,41 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+  }
+  public static final class DriveConstants {
+    public static final int kFrontLeftDriveMotorPort = 4;
+    public static final int kRearLeftDriveMotorPort = 8;
+    public static final int kFrontRightDriveMotorPort = 2;
+    public static final int kRearRightDriveMotorPort = 11;
+
+    public static final int kFrontLeftTurningMotorPort = 7;
+    public static final int kRearLeftTurningMotorPort = 9;
+    public static final int kFrontRightTurningMotorPort = 6;
+    public static final int kRearRightTurningMotorPort = 13;
+
+    public static final int kFrontLeftEncoderPort = 15;
+    public static final int kRearLeftEncoderPort = 17;
+    public static final int kFrontRightEncoderPort = 14;
+    public static final int kRearRightEncoderPort = 16;
+
+    public static final double kFrontLeftAbsoluteEncoderOffset = 0.658936;
+    public static final double kRearLeftAbsoluteEncoderOffset = 0.603516;
+    public static final double kFrontRightAbsoluteEncoderOffset = 0.713623;
+    public static final double kRearRightAbsoluteEncoderOffset = 0.458008;
+
+    // If you call DriveSubsystem.drive() with a different period make sure to update this.
+    public static final double kDrivePeriod = TimedRobot.kDefaultPeriod;
+
+    public static final double kTrackWidth = .629;
+    // Distance between centers of right and left wheels on robot
+    public static final double kWheelBase = 0.629 ;
+    // Distance between front and back wheels on robot
+
+    public static final SwerveDriveKinematics kDriveKinematics =
+        new SwerveDriveKinematics(
+            new Translation2d(-kWheelBase / 2, -kTrackWidth / 2),
+            new Translation2d(kWheelBase / 2, -kTrackWidth / 2),
+            new Translation2d(-kWheelBase / 2, kTrackWidth / 2),
+            new Translation2d(kWheelBase / 2, kTrackWidth / 2));
   }
 }
