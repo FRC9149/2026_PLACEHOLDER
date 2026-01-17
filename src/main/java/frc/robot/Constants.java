@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.robocats.swerve.ModuleConfig;
+
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -40,6 +42,25 @@ public final class Constants {
     public static final double kRearLeftAbsoluteEncoderOffset = 0.603516;
     public static final double kFrontRightAbsoluteEncoderOffset = 0.713623;
     public static final double kRearRightAbsoluteEncoderOffset = 0.458008;
+
+    public static final ModuleConfig moduleConfiguration = new ModuleConfig(
+      kFrontLeftDriveMotorPort,
+      kRearLeftDriveMotorPort,
+      kFrontRightDriveMotorPort,
+      kRearRightDriveMotorPort,
+      kFrontLeftTurningMotorPort,
+      kRearLeftTurningMotorPort,
+      kFrontRightTurningMotorPort,
+      kRearRightTurningMotorPort,
+      kFrontLeftEncoderPort,
+      kRearLeftEncoderPort,
+      kFrontRightEncoderPort,
+      kRearRightEncoderPort,
+      kFrontLeftAbsoluteEncoderOffset,
+      kRearLeftAbsoluteEncoderOffset,
+      kFrontRightAbsoluteEncoderOffset,
+      kRearRightAbsoluteEncoderOffset,
+      false, true, true, false);
 
     // If you call DriveSubsystem.drive() with a different period make sure to update this.
     public static final double kDrivePeriod = TimedRobot.kDefaultPeriod;
