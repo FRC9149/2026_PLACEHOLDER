@@ -1,16 +1,11 @@
 /*
 notes:
 
-1. I may not need the encoder values, as this just needs the motors to activate
-
 2. This is NOT usable yet
 
 3. This is currently just frankensteined together as a skeleton for future code
 
 4. YES THIS IS JUST A COPY PASTE FROM INTAKE
-
-
-
 
 
 */
