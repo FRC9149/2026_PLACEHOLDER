@@ -7,23 +7,23 @@ package frc.robot.commands;
 
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Outake;
+//import frc.robot.subsystems.Outake;
 
 /** An example command that uses an example subsystem. */
 public class ShootFuel extends Command {
   @SuppressWarnings("PMD.UnusedPrivateField")
-  private final Outake subsystem;
+  //private final Outake subsystem;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootFuel(Outake subsystem) {
-    this.subsystem = subsystem;
+ // public ShootFuel(Outake subsystem) {
+  //  this.subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
-  }
+  //  addRequirements(subsystem);
+//  }
 
   // Called when the command is initially scheduled.
   @Override

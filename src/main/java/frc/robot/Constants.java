@@ -23,25 +23,25 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static final class DriveConstants {
-    public static final int kFrontLeftDriveMotorPort = 4;
-    public static final int kRearLeftDriveMotorPort = 8;
-    public static final int kFrontRightDriveMotorPort = 2;
-    public static final int kRearRightDriveMotorPort = 11;
+    public static final int kFrontLeftDriveMotorPort = 1;
+    public static final int kRearLeftDriveMotorPort = 3;
+    public static final int kFrontRightDriveMotorPort = 5;
+    public static final int kRearRightDriveMotorPort = 7;
 
-    public static final int kFrontLeftTurningMotorPort = 7;
-    public static final int kRearLeftTurningMotorPort = 9;
+    public static final int kFrontLeftTurningMotorPort = 2;
+    public static final int kRearLeftTurningMotorPort = 4;
     public static final int kFrontRightTurningMotorPort = 6;
-    public static final int kRearRightTurningMotorPort = 13;
+    public static final int kRearRightTurningMotorPort = 8;
 
-    public static final int kFrontLeftEncoderPort = 15;
+    public static final int kFrontLeftEncoderPort = 14;
     public static final int kRearLeftEncoderPort = 17;
-    public static final int kFrontRightEncoderPort = 14;
-    public static final int kRearRightEncoderPort = 16;
+    public static final int kFrontRightEncoderPort = 16;
+    public static final int kRearRightEncoderPort = 15;
 
-    public static final double kFrontLeftAbsoluteEncoderOffset = 0.658936;
-    public static final double kRearLeftAbsoluteEncoderOffset = 0.603516;
-    public static final double kFrontRightAbsoluteEncoderOffset = 0.713623;
-    public static final double kRearRightAbsoluteEncoderOffset = 0.458008;
+    public static final double kFrontLeftAbsoluteEncoderOffset = 0.215576;
+    public static final double kRearLeftAbsoluteEncoderOffset = 0.029785;
+    public static final double kFrontRightAbsoluteEncoderOffset = 0.961426;
+    public static final double kRearRightAbsoluteEncoderOffset = 0.221924;
 
     public static final ModuleConfig moduleConfiguration = new ModuleConfig(
       kFrontLeftDriveMotorPort,
@@ -65,9 +65,9 @@ public final class Constants {
     // If you call DriveSubsystem.drive() with a different period make sure to update this.
     public static final double kDrivePeriod = TimedRobot.kDefaultPeriod;
 
-    public static final double kTrackWidth = .629;
+    public static final double kTrackWidth = 0.56515;
     // Distance between centers of right and left wheels on robot
-    public static final double kWheelBase = 0.629 ;
+    public static final double kWheelBase = 0.56515 ;
     // Distance between front and back wheels on robot
 
     public static final SwerveDriveKinematics kDriveKinematics =

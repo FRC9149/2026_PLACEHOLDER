@@ -37,9 +37,9 @@ public class RobotContainer {
   private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
     DriveConstants.kDriveKinematics, 
     DriveConstants.moduleConfiguration, 
-    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
+    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, true),
     true
-  ), null);
+  ), new PIDController(1.2000000000000,0,0));
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
