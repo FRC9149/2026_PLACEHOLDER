@@ -38,29 +38,29 @@ public final class Constants {
     public static final int kFrontRightEncoderPort = 16;
     public static final int kRearRightEncoderPort = 15;
 
-    public static final double kFrontLeftAbsoluteEncoderOffset = 0.215576;
+    public static final double kFrontLeftAbsoluteEncoderOffset = 1.215576;
     public static final double kRearLeftAbsoluteEncoderOffset = 0.029785;
-    public static final double kFrontRightAbsoluteEncoderOffset = 0.961426;
+    public static final double kFrontRightAbsoluteEncoderOffset = 1.461426;
     public static final double kRearRightAbsoluteEncoderOffset = 0.221924;
 
     public static final ModuleConfig moduleConfiguration = new ModuleConfig(
-      kFrontLeftDriveMotorPort,
       kRearLeftDriveMotorPort,
-      kFrontRightDriveMotorPort,
+      kFrontLeftDriveMotorPort,
       kRearRightDriveMotorPort,
-      kFrontLeftTurningMotorPort,
+      kFrontRightDriveMotorPort,
       kRearLeftTurningMotorPort,
-      kFrontRightTurningMotorPort,
+      kFrontLeftTurningMotorPort,
       kRearRightTurningMotorPort,
-      kFrontLeftEncoderPort,
+      kFrontRightTurningMotorPort,
       kRearLeftEncoderPort,
-      kFrontRightEncoderPort,
+      kFrontLeftEncoderPort,
       kRearRightEncoderPort,
-      kFrontLeftAbsoluteEncoderOffset,
+      kFrontRightEncoderPort,
       kRearLeftAbsoluteEncoderOffset,
-      kFrontRightAbsoluteEncoderOffset,
+      kFrontLeftAbsoluteEncoderOffset,
       kRearRightAbsoluteEncoderOffset,
-      false, true, true, false);
+      kFrontRightAbsoluteEncoderOffset,
+      !false, true, !true, !false);
 
     // If you call DriveSubsystem.drive() with a different period make sure to update this.
     public static final double kDrivePeriod = TimedRobot.kDefaultPeriod;

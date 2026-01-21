@@ -37,7 +37,7 @@ public class RobotContainer {
   private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
     DriveConstants.kDriveKinematics, 
     DriveConstants.moduleConfiguration, 
-    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, true),
+    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
     true
   ), new PIDController(1.2000000000000,0,0));
 
