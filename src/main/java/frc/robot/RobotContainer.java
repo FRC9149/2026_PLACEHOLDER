@@ -39,7 +39,7 @@ public class RobotContainer {
     DriveConstants.moduleConfiguration, 
     new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
     true
-  ), new PIDController(1.2000000000000,0,0));
+  ), new PIDController(00,0,0));
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
