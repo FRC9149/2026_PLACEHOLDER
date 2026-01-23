@@ -29,76 +29,42 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase{
-  //private SparkMax m1, m2;
-  //private RelativeEncoder e1, e2;
-  private PIDController pid = new PIDController(1, 0, 0);
-  private SparkMaxConfig firstConfig = new SparkMaxConfig(), secondConfig = new SparkMaxConfig();
-  private double encoderTolerance;
 
+  private final SparkMax SM1 = new SparkMax(1, MotorType.kBrushless);
+  private final SparkMax SM2 = new SparkMax(2, MotorType.kBrushless);
+
+   public Shooter() {
+    // Motor configuration
+    SparkMaxConfig config = new SparkMaxConfig();
+    config
+        .idleMode(IdleMode.kCoast)
+        .smartCurrentLimit(40);
+
+    SM1.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    SM2.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    // Invert one of the motors so the wheels spin opposite directions and launch the ball up between them
+    SM1.setInverted(false);
+    SM2.setInverted(true);
+  }
+
+  /** Run shooter at given speed (0.0 to 1.0) */
+  public void shoot(double speed) {
+    SM1.set(speed);
+    SM2.set(speed);
+  }
+
+  /** Stop shooter */
+  public void stop() {
+    SM1.set(0);
+    SM2.set(0);
+  }
+
+ 
 
 //--------------------------------------------------------------------------------------------------------------
 
-
-  private void initMotors(boolean inverted1, boolean inverted2) {
-    //m1 = new SparkMax(1, MotorType.kBrushless);
-    //m2 = new SparkMax(20, MotorType.kBrushless);
-
-    //e1 = m1.getEncoder();
-    //e2 = m2.getEncoder();
-
-
-    /*
-    firstConfig
-      .inverted(inverted1)
-      .idleMode(IdleMode.kBrake)
-    ;
-    secondConfig
-      .inverted(inverted2)
-      .idleMode(IdleMode.kBrake)
-    ;
-*/
-    //m1.configure(firstConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
-    //m2.configure(secondConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
-  }
-
-  //-----------------------------------------------------------------------------------------
-
-  public void setPID(double p, double i, double d) {
-    pid = new PIDController(p, i, d);
-  }
-
-//----------------------------------------------------------------------------------------
-  public void setPID(PIDController pid) {
-    this.pid = pid;
-  }
-
-//--------------------------------------------------------------------------------------
-
-  public void setEncoderTolerance(double tolerance) {
-    this.encoderTolerance = tolerance;
-  }
-
-
-//-----------------------------------------------------------------------------------------------------------
-
-
-  public void setSpeed(double speed) {
-   // m1.set(speed);
-   // m2.set(speed);
-  }
-
-
-
-//----------------------------------------------------------------------------------------------------------------
-
-
-
-  @Override
-  public void periodic() {
-    //SmartDashboard.putNumber("elevator Encoders", getAverageEncoder()); Don't think I'll need this
-    //SmartDashboard.putNumber("encoder one", e1.getPosition());
-    //SmartDashboard.putNumber("encoder two", e2.getPosition());
-  }
+  
 
 //-----------------------------------------------------------------------------------------------
 

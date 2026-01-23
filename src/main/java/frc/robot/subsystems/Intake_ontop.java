@@ -1,14 +1,3 @@
-/*
-notes:
-
-This currently does not have 
-a purpose, but is set up for further coding
-
-
-
-
-*/
-
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -27,26 +16,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Intake extends SubsystemBase{
-  
-    private final SparkMax m1 = new SparkMax(1, MotorType.kBrushless);
+public class Intake_ontop extends SubsystemBase{
 
-
-
-
-
-
-  
-
-
-
-//----------------------------------------------------------------------------------------------------------------
-
-
-
-  
-//-----------------------------------------------------------------------------------------------
-
+    private final SparkMax m1onintake = new SparkMax(1, MotorType.kBrushless);
 }
-
-//============================================================================================================

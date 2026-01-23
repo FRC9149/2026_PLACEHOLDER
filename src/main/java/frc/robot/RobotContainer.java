@@ -20,7 +20,7 @@ import com.robocats.swerve.SwerveConfig;
 import com.robocats.swerve.SwerveSubsystem;
 import com.studica.frc.AHRS.NavXComType;
 
-import frc.robot.Constants.DriveConstants;
+
 import com.robocats.swerve.gyroscope.AhrsGyro;
 import com.robocats.swerve.ModuleConfig;
 import com.robocats.controllers.Ps3;
@@ -84,10 +84,10 @@ public class RobotContainer {
     
   }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
+  /* 
+   Use this to pass the autonomous command to the main {@link Robot} class.
+   
+    @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
