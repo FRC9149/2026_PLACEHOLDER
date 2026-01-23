@@ -60,6 +60,7 @@ public final class Constants {
       kRearLeftAbsoluteEncoderOffset,
       kFrontRightAbsoluteEncoderOffset,
       kRearRightAbsoluteEncoderOffset,
+      //is drive motor reversed
       !false, !true, !true, !false);
       
 
@@ -73,9 +74,9 @@ public final class Constants {
 
     public static final SwerveDriveKinematics kDriveKinematics =
         new SwerveDriveKinematics(
-            new Translation2d(-kWheelBase / 2, -kTrackWidth / 2),
+            new Translation2d(kWheelBase / 2, kTrackWidth / 2),
             new Translation2d(kWheelBase / 2, -kTrackWidth / 2),
             new Translation2d(-kWheelBase / 2, kTrackWidth / 2),
-            new Translation2d(kWheelBase / 2, kTrackWidth / 2));
+            new Translation2d(-kWheelBase / 2, -kTrackWidth / 2));
   }
 }
