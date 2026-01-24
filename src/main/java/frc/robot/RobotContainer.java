@@ -8,8 +8,11 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.test;
+import frc.robot.subsystems.Aiming;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -30,16 +33,18 @@ import com.robocats.controllers.Ps3;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
+import com.robocats.controllers.RevGamePad;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final Joystick controller = new Joystick(1);
 
   private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
     DriveConstants.kDriveKinematics, 
     DriveConstants.moduleConfiguration, 
     new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
     true
-  ), new PIDController(00,0,0));
+  ), new PIDController(0.5,0.01,0.01), null, false);
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -55,11 +60,11 @@ public class RobotContainer {
 
     Swerve.setDefaultCommand(
       new RunCommand(() -> Swerve.drive(
-        ps3.getLeftY(),
-        ps3.getLeftX(),
-        ps3.getRightX(),
-        ps3.getRightY()
-      ), Swerve)
+        ps3.getLeftY()/20,
+        ps3.getLeftX()/20, 
+        ps3.getRightX() / 10,
+        true
+        ), Swerve)
     );
     Swerve.setupPathPlanner();
   }
@@ -77,6 +82,8 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
+
+    new Trigger(() -> controller.getRawButton(1)).whileTrue(new test());
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
