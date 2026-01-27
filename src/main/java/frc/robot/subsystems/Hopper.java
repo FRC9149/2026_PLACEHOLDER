@@ -18,5 +18,5 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Hopper extends SubsystemBase{
 
-    private final SparkMax m1Hopper = new SparkMax(1, MotorType.kBrushless);
+    private final SparkMax Hopperm1 = new SparkMax(1, MotorType.kBrushless);
 }
