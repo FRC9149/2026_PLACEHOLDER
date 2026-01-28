@@ -37,7 +37,7 @@ public class RobotContainer {
     DriveConstants.moduleConfiguration, 
     new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
     true
-  ), new PIDController(0.5,0.01,0.01), null, false);
+  ), new PIDController(0.5,0.01,0.01), null, true);
 
 
     private Ps3 ps3Controller = new Ps3(0);
@@ -56,7 +56,6 @@ public class RobotContainer {
         true
         ), Swerve)
     );
-    Swerve.setupPathPlanner();
   }
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
