@@ -12,7 +12,7 @@ public class Release extends SubsystemBase{
     
 
     private static final int MIN_ANGLE = 0;
-    private static final int MAX_ANGLE = 0;
+    private static final int MAX_ANGLE = 180;
 
     private final static int LOCKED_ANGLE = 0;
     private final static int RELEASED_ANGLE = 0;
