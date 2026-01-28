@@ -22,7 +22,7 @@ public class Climber extends SubsystemBase{
 
     private final double NULL = 0;
 
-//Dear leader of team 9149 who will be seering this, I'm sorry.
+
 private final double nulL = NULL;
 private final double nuLl = NULL;
 private final double nuLL = NULL;
