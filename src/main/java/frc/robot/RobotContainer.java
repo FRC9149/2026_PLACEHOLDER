@@ -19,17 +19,17 @@ import com.robocats.swerve.SwerveConfig;
 import com.robocats.swerve.SwerveSubsystem;
 import com.studica.frc.AHRS.NavXComType;
 
-
 import com.robocats.swerve.gyroscope.AhrsGyro;
 import com.robocats.swerve.ModuleConfig;
 import com.robocats.controllers.Ps3;
+import com.robocats.controllers.RevGamePad;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
-import com.robocats.controllers.RevGamePad;
+
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
