@@ -28,5 +28,4 @@ public class IntakeControl extends Command {
     system.stop();
     RobotContainer.opXbox.setRumble(RumbleType.kBothRumble, 0);
   }
-
 }
