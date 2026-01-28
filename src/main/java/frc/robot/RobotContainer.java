@@ -6,11 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.test;
 import frc.robot.subsystems.Aiming;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -36,9 +32,6 @@ import com.robocats.controllers.Ps3;
 import com.robocats.controllers.RevGamePad;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  private final Joystick controller = new Joystick(1);
-
   private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
     DriveConstants.kDriveKinematics, 
     DriveConstants.moduleConfiguration, 
@@ -47,10 +40,7 @@ public class RobotContainer {
   ), new PIDController(0.5,0.01,0.01), null, false);
 
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  // private final CommandXboxController m_driverController =
-      //new CommandXboxController(OperatorConstants.kDriverControllerPort); EXAMPLE
-    private Ps3 ps3 = new Ps3(0);
+    private Ps3 ps3Controller = new Ps3(0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -60,15 +50,14 @@ public class RobotContainer {
 
     Swerve.setDefaultCommand(
       new RunCommand(() -> Swerve.drive(
-        ps3.getLeftY()/20,
-        ps3.getLeftX()/20, 
-        ps3.getRightX() / 10,
+        ps3Controller.getLeftY()/20,
+        ps3Controller.getLeftX()/20, 
+        ps3Controller.getRightX() / 10,
         true
         ), Swerve)
     );
     Swerve.setupPathPlanner();
   }
-  // something
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
    * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
@@ -79,16 +68,8 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
 
-    new Trigger(() -> controller.getRawButton(1)).whileTrue(new test());
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());  EXAMPLLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-    
   }
 
   /* 
@@ -98,6 +79,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
   }
 }
