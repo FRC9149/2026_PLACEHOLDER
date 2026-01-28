@@ -16,9 +16,10 @@ public class Release extends SubsystemBase{
 
     private final static int LOCKED_ANGLE = 0;
     private final static int RELEASED_ANGLE = 0;
-
-        public Release() {
-    lock();
+ 
+    //constructor
+    public Release() {
+        lock();
     }
 
 
