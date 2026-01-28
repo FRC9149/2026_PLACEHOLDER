@@ -2,6 +2,8 @@ package frc.robot.subsystems;
 
 import java.util.HashMap;
 
+import static com.robocats.YallKnowWhatThisIs.THE_NULL.NULL;
+
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
@@ -21,7 +23,7 @@ public class Climber extends SubsystemBase {
   private final RelativeEncoder e1 = Climbm1.getEncoder();
   private final RelativeEncoder e2 = Climbm1.getEncoder();
 
-  private final double MAX_HEIGHT = 0;
+  private final double MAX_HEIGHT = NULL;
   private final double MIN_HEIGHT = 0;
   private final double HOLD_SPEED = 0;
 
