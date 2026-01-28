@@ -43,12 +43,12 @@ private final double NULl = NULL;
     private final SparkMax Climbm2 = new SparkMax(2, MotorType.kBrushless);
 
     private final RelativeEncoder e1 = Climbm1.getEncoder();
-    private final RelativeEncoder e2 = Climbm1.getEncoder();
+    private final RelativeEncoder e2 = Climbm2.getEncoder();
 
 
-    private final double MAX_HEIGHT = NULL;
-    private final double MIN_HEIGHT = NULL;
-    private final double HOLD_SPEED = NULL;
+    private final double MAX_HEIGHT = NULL;//make static later after null is no longer needed
+    private final double MIN_HEIGHT = NULL;//make static later after null is no longer needed
+    private final double HOLD_SPEED = NULL;//make static later after null is no longer needed
 
     private final HashMap<Integer, Double> climbHeights = new HashMap<>();
     
@@ -68,6 +68,7 @@ private final double NULl = NULL;
     Climbm2.configure(config, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
 
     zeroEncoders();
+    initHeights();
   }
 
   private void initHeights() {
@@ -90,6 +91,10 @@ public void moveToHeight(double targetHeight, boolean hold) {
 }
 
     public void setSpeed(double speed) {
+        if (!withinLimits(speed)) {
+        stop();
+        return;
+    }
         Climbm1.set(speed);
         Climbm2.set(speed);
 
@@ -143,8 +148,8 @@ public void moveToHeight(double targetHeight, boolean hold) {
 
     @Override
   public void periodic() {
-    SmartDashboard.putNumber("elevator Encoders", getHeight());
-    SmartDashboard.putNumber("encoder one", e1.getPosition());
-    SmartDashboard.putNumber("encoder two", e2.getPosition());
+    SmartDashboard.putNumber("Climber Encoders", getHeight());
+    SmartDashboard.putNumber("Climber one", e1.getPosition());
+    SmartDashboard.putNumber("Climber two", e2.getPosition());
   }
 }
