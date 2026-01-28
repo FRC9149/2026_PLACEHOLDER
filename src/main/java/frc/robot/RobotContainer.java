@@ -12,7 +12,12 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import com.robocats.swerve.SwerveSubsystem;
+import com.studica.frc.AHRS.NavXComType;
+
+import com.robocats.swerve.gyroscope.AhrsGyro;
+import com.robocats.swerve.ModuleConfig;
 import com.robocats.controllers.Ps3;
+import com.robocats.controllers.RevGamePad;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
