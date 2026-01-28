@@ -6,6 +6,7 @@ package frc.robot;
 
 import com.robocats.swerve.ModuleConfig;
 
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -22,6 +23,11 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class WaypointConstants {
+    public static final Pose2d exampleWaypoint = new Pose2d();
+  }
+
   public static final class DriveConstants {
     public static final int kFrontLeftDriveMotorPort = 1;
     public static final int kRearLeftDriveMotorPort = 3;
