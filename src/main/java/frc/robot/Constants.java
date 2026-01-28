@@ -7,6 +7,7 @@ package frc.robot;
 import com.robocats.swerve.ModuleConfig;
 
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -25,7 +26,14 @@ public final class Constants {
   }
 
   public static class WaypointConstants {
-    public static final Pose2d exampleWaypoint = new Pose2d();
+    public static final Pose2d middleShootingPosition = new Pose2d(2.5, 4, new Rotation2d(0 * Math.PI / 180));
+    public static final Pose2d leftOfLadderShootingPosition = new Pose2d(2.5, 5.3, new Rotation2d(-30 * Math.PI / 180));
+    public static final Pose2d rightOfLadderShootingPosition = new Pose2d(2.5, 2.65, new Rotation2d(30 * Math.PI / 180));
+    public static final Pose2d leftOfLadderClimbingPosition = new Pose2d(1.6, 4.3, new Rotation2d(0 * Math.PI / 180));
+    public static final Pose2d middleOfLadderClimbingPostion = new Pose2d(1.6, 4, new Rotation2d(0 * Math.PI / 180));
+    public static final Pose2d rightOfLadderClimbingPosition = new Pose2d(1.6, 3.55, new Rotation2d(0 * Math.PI / 180));
+    // x-2.5, y-4 Directly in front of scoring
+    // 
   }
 
   public static final class DriveConstants {
