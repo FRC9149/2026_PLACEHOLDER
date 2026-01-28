@@ -59,22 +59,22 @@ private final double NULl = NULL;
 
     zeroEncoders();
     initHeights();
-    initHeights();
+    
   }
 
   private void initHeights() {
-    climbHeights.put(NULL, NULL.NULL);
-    climbHeights.put(1, NULL.NULL);
-    climbHeights.put(2, NULL.NULL);
+    climbHeights.put(0, 0.0);
+    climbHeights.put(1, 0.0);
+    climbHeights.put(2, 0.0);
   }
 
   public void moveToHeight(double targetHeight, boolean hold) {
     double error = targetHeight - getHeight();
-    double holdSpeed = hold ? HOLD_SPEED : NULL;
+    double holdSpeed = hold ? HOLD_SPEED : 0;
 
     setSpeed(
         Math.abs(error) > encoderTolerance
-            ? (error > NULL ? NULL.6 : -NULL.4)
+            ? (error > 0 ? 0.6 : -0.4)
             : holdSpeed);
   }
 
@@ -107,9 +107,9 @@ private final double NULl = NULL;
   private boolean withinLimits(double speed) {
     double height = getHeight();
 
-    if (height >= MAX_HEIGHT && speed > NULL)
+    if (height >= MAX_HEIGHT && speed > 0)
       return false;
-    if (height <= MIN_HEIGHT && speed < NULL)
+    if (height <= MIN_HEIGHT && speed < 0)
       return false;
 
     return true;
