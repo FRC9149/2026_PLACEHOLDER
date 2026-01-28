@@ -5,23 +5,13 @@
 package frc.robot;
 
 import frc.robot.Constants.DriveConstants;
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.subsystems.Aiming;
 import edu.wpi.first.math.controller.PIDController;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-import com.robocats.swerve.SwerveConfig;
 import com.robocats.swerve.SwerveSubsystem;
-import com.studica.frc.AHRS.NavXComType;
-
-
-import com.robocats.swerve.gyroscope.AhrsGyro;
-import com.robocats.swerve.ModuleConfig;
 import com.robocats.controllers.Ps3;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -29,15 +19,14 @@ import com.robocats.controllers.Ps3;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
-import com.robocats.controllers.RevGamePad;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final SwerveSubsystem Swerve = new SwerveSubsystem(new SwerveConfig(4, 3 * Math.PI, .1016, TimedRobot.kDefaultPeriod, 
-    DriveConstants.kDriveKinematics, 
-    DriveConstants.moduleConfiguration, 
-    new AhrsGyro(NavXComType.kUSB1, Math.PI/2, false),
-    true
-  ), new PIDController(0.5,0.01,0.01), null, true);
+  private final SwerveSubsystem Swerve = new SwerveSubsystem(
+    DriveConstants.swerveConfiguration, 
+    new PIDController(0.5,0.01,0.01), 
+    null,
+     true
+  );
 
 
     private Ps3 ps3Controller = new Ps3(0);
@@ -50,9 +39,9 @@ public class RobotContainer {
 
     Swerve.setDefaultCommand(
       new RunCommand(() -> Swerve.drive(
-        ps3Controller.getLeftY()/20,
-        ps3Controller.getLeftX()/20, 
-        ps3Controller.getRightX() / 10,
+        ps3Controller.getLeftY(),
+        ps3Controller.getLeftX(), 
+        ps3Controller.getRightX(),
         true
         ), Swerve)
     );
