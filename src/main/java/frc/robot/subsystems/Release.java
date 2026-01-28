@@ -24,7 +24,7 @@ public class Release extends SubsystemBase{
 
 
 
-    public void setActuators(double position) {
+    public void setServos(double position) {
 
         position = MathUtil.clamp(position, MIN_ANGLE, MAX_ANGLE);
 
@@ -35,11 +35,11 @@ public class Release extends SubsystemBase{
     }
 
     public void lock() {
-        setActuators(LOCKED_ANGLE);
+        setServos(LOCKED_ANGLE);
     }
     
     public void release() {
-        setActuators(RELEASED_ANGLE);
+        setServos(RELEASED_ANGLE);
     }
 
 
