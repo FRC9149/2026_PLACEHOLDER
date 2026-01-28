@@ -41,13 +41,13 @@ private final double NUlL = NULL;
 private final double NULl = NULL;
 */
 
-  private final double MAX_HEIGHT = NULL;
-  private final double MIN_HEIGHT = Null;
+  private final double MAX_HEIGHT = 0;
+  private final double MIN_HEIGHT = 0;
   private final double HOLD_SPEED = 0;
 
   private final HashMap<Integer, Double> climbHeights = new HashMap<>();
 
-  private final double encoderTolerance = NulL;
+  private final double encoderTolerance = 0;
 
   private final SparkMaxConfig config = new SparkMaxConfig();
 
@@ -91,8 +91,8 @@ private final double NULl = NULL;
   }
 
   public void stop() {
-    Climbm1.set(NULL);
-    Climbm2.set(NuLl);
+    Climbm1.set(0);
+    Climbm2.set(0);
 
   }
 
@@ -102,8 +102,8 @@ private final double NULl = NULL;
   }
 
   public void zeroEncoders() {
-    e1.setPosition(Null);
-    e2.setPosition(nULL);
+    e1.setPosition(0);
+    e2.setPosition(0);
   }
 
   private boolean withinLimits(double speed) {
