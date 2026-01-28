@@ -41,6 +41,7 @@ public class Climber extends SubsystemBase {
 
     zeroEncoders();
     initHeights();
+    initHeights();
   }
 
   private void initHeights() {
@@ -59,9 +60,13 @@ public class Climber extends SubsystemBase {
             : holdSpeed);
   }
 
-  public void setSpeed(double speed) {
-    Climbm1.set(speed);
-    Climbm2.set(speed);
+    public void setSpeed(double speed) {
+        if (!withinLimits(speed)) {
+        stop();
+        return;
+    }
+        Climbm1.set(speed);
+        Climbm2.set(speed);
 
   }
 
@@ -106,8 +111,8 @@ public class Climber extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("elevator Encoders", getHeight());
-    SmartDashboard.putNumber("encoder one", e1.getPosition());
-    SmartDashboard.putNumber("encoder two", e2.getPosition());
+    SmartDashboard.putNumber("Climber Encoders", getHeight());
+    SmartDashboard.putNumber("Climber one", e1.getPosition());
+    SmartDashboard.putNumber("Climber two", e2.getPosition());
   }
 }
