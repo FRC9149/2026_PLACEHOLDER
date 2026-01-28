@@ -19,6 +19,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Aiming extends SubsystemBase{
 
-    private final Servo s1onintake = new Servo(0);
-    private final Servo s2onintake = new Servo(1);
+    private final Servo Onintakes1 = new Servo(0);
+    private final Servo Onintakes2 = new Servo(1);
 }
