@@ -21,9 +21,9 @@ public class Climber extends SubsystemBase {
 
   private final RelativeEncoder e1 = Climbm1.getEncoder();
   private final RelativeEncoder e2 = Climbm1.getEncoder();
+
 /* NULL memorial
    private final double NULL = 0;
-
 
 private final double nulL = NULL;
 private final double nuLl = NULL;
