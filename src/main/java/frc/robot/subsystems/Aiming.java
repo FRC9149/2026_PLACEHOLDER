@@ -2,9 +2,7 @@ package frc.robot.subsystems;
 
 
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Aiming extends SubsystemBase{
@@ -18,6 +16,7 @@ private static final double MAX_ANGLE = 180.0;
     public void setHeight(double height){
     height = MathUtil.clamp(height, MIN_ANGLE, MAX_ANGLE);
     s1OnAiming.setAngle(height);
+    //s2OnAiming.setAngle(height);
 
 
     }

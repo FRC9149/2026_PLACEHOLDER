@@ -21,9 +21,9 @@ public class Climber extends SubsystemBase {
 
   private final RelativeEncoder e1 = Climbm1.getEncoder();
   private final RelativeEncoder e2 = Climbm1.getEncoder();
+
 /* NULL memorial
    private final double NULL = 0;
-
 
 private final double nulL = NULL;
 private final double nuLl = NULL;
@@ -41,13 +41,13 @@ private final double NUlL = NULL;
 private final double NULl = NULL;
 */
 
-  private final double MAX_HEIGHT = NULL;
-  private final double MIN_HEIGHT = Null;
+  private final double MAX_HEIGHT = 0;
+  private final double MIN_HEIGHT = 0;
   private final double HOLD_SPEED = 0;
 
   private final HashMap<Integer, Double> climbHeights = new HashMap<>();
 
-  private final double encoderTolerance = NulL;
+  private final double encoderTolerance = 0;
 
   private final SparkMaxConfig config = new SparkMaxConfig();
 
@@ -106,8 +106,8 @@ private final double NULl = NULL;
   }
 
   public void zeroEncoders() {
-    e1.setPosition(Null);
-    e2.setPosition(nULL);
+    e1.setPosition(0);
+    e2.setPosition(0);
   }
 
   private boolean withinLimits(double speed) {
