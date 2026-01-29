@@ -8,9 +8,7 @@ public class Release extends SubsystemBase{
 
     private final Servo s1release = new Servo(1);
     private final Servo s2release = new Servo(1);
-
     
-
     private static final int MIN_ANGLE = 0;
     private static final int MAX_ANGLE = 180;
 
@@ -21,7 +19,6 @@ public class Release extends SubsystemBase{
     public Release() {
         lock();
     }
-
 
     public void setServos(double position) {
 
