@@ -7,6 +7,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
 /** An example command that uses an example subsystem. */
 public class ShootFuel extends Command {
@@ -30,12 +31,12 @@ public class ShootFuel extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {subsystem.shoot(0.5)}
+  public void execute() {subsystem.shoot(0.5);}
   
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {subsystem.shoot(0);}
 
   // Returns true when the command should end.
   @Override
